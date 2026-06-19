@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Criptográfico Seguro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="container">
+        <!-- Pestaña 1: Login -->
+        <div id="panel-login" class="glass-panel active">
+            <div class="header">
+                <h1>Seguridad Unificada</h1>
+                <p>1er Factor de Autenticación (Credenciales)</p>
+            </div>
+            
+            <div id="alert-login" class="alert"></div>
+
+            <form id="form-login">
+                <div class="form-group">
+                    <label>Correo Administrador</label>
+                    <input type="email" id="login-email" value="admin@universidad.edu" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="login-pass" value="admin123" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="btn-login">
+                    <span>Verificar Credenciales</span>
+                    <div class="loader"></div>
+                </button>
+            </form>
+        </div>
+
+        <!-- Pestaña 2: MFA -->
+        <div id="panel-mfa" class="glass-panel">
+            <div class="header">
+                <h1>Autenticación MFA</h1>
+                <p>2do Factor de Autenticación (App Móvil)</p>
+            </div>
+            
+            <div class="mfa-setup" style="text-align: center; margin-bottom: 20px;">
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px;">¿Primera vez? Escanea este QR en Google Authenticator:</p>
+                <div id="qrcode" style="display: flex; justify-content: center; background: white; padding: 10px; border-radius: 10px; width: fit-content; margin: 0 auto;"></div>
+            </div>
+
+            <div id="alert-mfa" class="alert"></div>
+
+            <form id="form-mfa">
+                <div class="form-group">
+                    <label>Token TOTP (ej. Authy o Google Auth)</label>
+                    <input type="text" id="mfa-token" placeholder="000000" maxlength="6" autocomplete="off" required style="text-align: center; letter-spacing: 4px; font-size: 1.2rem;">
+                </div>
+                <button type="submit" class="btn btn-success" id="btn-mfa">
+                    <span>Validar Código</span>
+                    <div class="loader"></div>
+                </button>
+            </form>
+        </div>
+
+        <!-- Pestaña 3: Emisión PKI -->
+        <div id="panel-pki" class="glass-panel">
+            <div class="header">
+                <h1>Emisión de Certificados</h1>
+                <p>Anclaje Blockchain & Criptografía PKI</p>
+            </div>
+
+            <div id="alert-pki" class="alert"></div>
+
+            <form id="form-pki">
+                <div class="form-group">
+                    <label>Nombre Completo del Alumno</label>
+                    <input type="text" id="pki-nombre" placeholder="Ej: Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label>Correo Institucional</label>
+                    <input type="email" id="pki-correo" placeholder="Ej: juan@universidad.edu" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="btn-pki" style="background: linear-gradient(135deg, #ef4444, #b91c1c);">
+                    <span>Generar y Anclar a Blockchain</span>
+                    <div class="loader"></div>
+                </button>
+            </form>
+
+            <div class="console-output" id="console-log">> Consola de auditoría iniciada...</div>
+        </div>
+    </div>
+
+    <script>
+        const mfaUri = "{{ mfa_uri }}";
+    </script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
