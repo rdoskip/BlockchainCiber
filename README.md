@@ -87,6 +87,7 @@ pip install Flask cryptography web3 pyotp
 ```bash
 python app.py
 ```
+
 para revisar la informacion del contrato puedes usar el script ver_enventos.py con python ver_eventos.py
 
 > **Nota:** En la consola verás una advertencia de "CONFIGURACIÓN AUTOMÁTICA DE TU DISPOSITIVO MÓVIL". Ese link URI puedes ignorarlo si planeas escanear el QR directamente desde la interfaz web.
