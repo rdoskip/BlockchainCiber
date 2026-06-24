@@ -113,6 +113,8 @@ class SistemaSeguridadGUI:
             data = r.json()
             # Formatear la respuesta JSON en la pantalla de la GUI
             texto_resultado = f"[PKI] Estado: {data.get('estado')}\n"
+            texto_resultado += f"[ALUMNO]: {data.get('alumno')}\n"
+            texto_resultado += f"[MENSAJE]: {data.get('mensaje')}\n"
             texto_resultado += f"[HASH SHA-256]: {data.get('sha256_hash')}\n"
             texto_resultado += f"[BLOCKCHAIN]: Bloque {data.get('blockchain_bloque')}\n"
             texto_resultado += f"[NODO DATA]: TX {data.get('transaccion_tx')}\n"

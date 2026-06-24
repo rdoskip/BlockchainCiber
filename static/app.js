@@ -123,6 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 showAlert(alertPki, 'Certificado emitido e indexado con éxito.', 'success');
                 
                 let text = `> [PKI] Estado: ${data.estado}\n`;
+                text += `> [ALUMNO]: ${data.alumno}\n`;
+                text += `> [MENSAJE]: ${data.mensaje}\n`;
                 text += `> [HASH SHA-256]: ${data.sha256_hash}\n`;
                 text += `> [BLOCKCHAIN]: Bloque ${data.blockchain_bloque}\n`;
                 text += `> [NODO DATA]: TX ${data.transaccion_tx}\n`;

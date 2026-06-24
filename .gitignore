@@ -2,11 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.pem
-.md
 # C extensions
 *.so
-
+.pem
 # Distribution / packaging
 .Python
 build/

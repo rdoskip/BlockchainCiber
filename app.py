@@ -85,7 +85,7 @@ else:
     exit(1)
 
 # REEMPLAZAR con tu dirección de contrato desplegado en Ganache
-CONTRATO_ADDRESS = "0x4A81E014f010961De33F3CBaB4863568A0758898"  # ¡ACTUALIZA ESTA DIRECCIÓN!
+CONTRATO_ADDRESS = "0x4Da004c24BD038D6577D694063ef543b4ccB8D78"  # ¡ACTUALIZA ESTA DIRECCIÓN!
 
 # ABI del contrato - CORREGIDO (solo el array, no anidado)
 CONTRATO_ABI = [
